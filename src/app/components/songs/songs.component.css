@@ -27,19 +27,7 @@
   margin-left: 150px;
 }
 
-.background {
-  /* position: absolute;
-    width: 100%;
-    margin-left: 600px;
-    padding-left: -100px;
-    height: 100%;
-    right: -10%;
-    background-size: cover;
-    background:linear-gradient(to top ,transparent,#303030),
-    url('https://static.timesofisrael.com/www/uploads/2018/06/F180614RAFF15.jpg');
-    transform: skew(20deg);
-    filter: blur(10px); */
-}
+
 .card-second {
   background: linear-gradient(
       rgba(30, 30, 30, 0.5),
@@ -47,7 +35,7 @@
       rgba(30, 30, 30, 0.5)
     ),
     linear-gradient(rgba(30, 30, 30, 0.5), transparent, rgba(30, 30, 30, 0.5)),
-    url("https://images.wcdn.co.il/f_auto,q_auto,w_1200,t_54/2/4/8/0/2480529-46.jpg");
+    url("../../../assets/macabi-view.avif");
   background-size: cover;
   position: absolute;
   background-position: 1%;
@@ -129,7 +117,7 @@ h2 {
   align-items: center;
   box-shadow: 0px 0px 40px 12px rgba(0, 0, 0, 0.7);
   background: linear-gradient(to top, black, transparent, #303030),
-    url("https://hazavit.co.il/wp-content/uploads/2019/12/%D7%9E%D7%9B%D7%91%D7%99-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91-%D7%A7%D7%94%D7%9C-scaled.jpg");
+    url("../../../assets/view-two.jpg");
   background-size: cover;
   border-radius: 20px;
   color: white;
@@ -163,20 +151,7 @@ h2 {
   opacity: 0.6;
   animation: rotate 30s linear infinite;
 
-  /* grid-column-start:1;
-    grid-column-end:span col4-start;
-    grid-row-start: 2;
-    grid-row-end: span 2; */
 }
-.ss-one {
-  /* grid-column-start:2;
-    grid-row-start: 0; */
-}
-.ss-one {
-  /* grid-column-start: 3;
-    grid-row-start: 0; */
-}
-
 .search{
   position: absolute;
   top: 220%;
@@ -300,11 +275,7 @@ color: white;
   .card-second {
     animation: slideFromLeft 2s ease-in;
   }
-  .search{
-    position: absolute;
-    top: 15%;
-    right: 150%;
-  }
+
 }
 @media (max-width: 848px) {
   .card-second {

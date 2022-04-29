@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.0.0",
   "scripts": {
-    "devStart":"nodemon server.js",
+    "devStart": "nodemon server.js",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
@@ -15,10 +15,12 @@
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
+    "@angular/fire": "^7.3.0",
     "@angular/forms": "~13.2.0",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "lite-server": "^2.6.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -17,7 +17,7 @@ const Quote = require('./models/quote');
 
 
 app.use(cors())
-
+const port = process.env.PORT || 3000;
 mongoose.connect(process.env.DATABASE_URL);
 
 var db = mongoose.connection;
