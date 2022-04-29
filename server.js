@@ -8,6 +8,7 @@ const { ObjectUnsubscribedError } = require('rxjs');
 const User = require('./models/user');
 const Quote = require('./models/quote');
 
+const uri = process.env.MONGODB_URI;
 const port = process.env.PORT || 3000;
 
 
