@@ -14,9 +14,9 @@ const port = process.env.PORT || 3000;
 
 
 
+app.use(cors());
 app.use(express.static('app'));
 
-app.use(cors())
 mongoose.connect('mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 
 var db = mongoose.connection;
