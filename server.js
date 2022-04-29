@@ -14,7 +14,9 @@ const port = process.env.PORT || 3000;
 
 
 
-app.use(cors());
+app.use(cors({
+    origin:'https://nodejs-songs-website.herokuapp.com/'
+}));
 app.use(express.static('app'));
 
 mongoose.connect('mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
