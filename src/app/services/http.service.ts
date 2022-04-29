@@ -4,7 +4,7 @@ import { HttpClient, HttpParamsOptions } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  private readonly SERVER ="http://localhost:3000";
+  private readonly SERVER ="mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
   constructor(private _http:HttpClient) {
        
    }
