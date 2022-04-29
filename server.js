@@ -8,16 +8,14 @@ const { ObjectUnsubscribedError } = require('rxjs');
 const User = require('./models/user');
 const Quote = require('./models/quote');
 
+const port = process.env.PORT || 3000;
 
 
 
 
-
-
-
+app.use(express.static('app'));
 
 app.use(cors())
-const port = process.env.PORT || 3000;
 mongoose.connect(process.env.DATABASE_URL);
 
 var db = mongoose.connection;
@@ -74,7 +72,6 @@ app.post('/songs' ,async (req,res)=>{
         subWords:req.body.subWords,
         video:req.body.video    
     });
-    console.log('new song = ',song);
     try{
         const newSong = await song.save();
         res.status(201).json(newSong);
@@ -151,4 +148,4 @@ app.get('/quotes',async (req,res)=>{
 })
 
 
-app.listen(3000,()=> console.log('server started'))
+app.listen(port,()=> console.log('server started'))

@@ -9,7 +9,6 @@
   position: absolute;
   width: 50%;
   top: 40%;
-  animation: opacity 5s ease-in;
 }
 .enter {
   height: 500px;
@@ -36,7 +35,6 @@
     url("../../../assets/macabi-view.avif");
   background-size: cover;
   position: absolute;
-  background-position: 1%;
   width: 500px;
   height: max-content;
   margin-right: 20%;
@@ -67,9 +65,7 @@
 .our-service > * {
   color: white;
 }
-.quotes {
-  width: fit-content;
-}
+
 .welcome {
   position: relative;
   width: 100%;
@@ -147,7 +143,6 @@ h2 {
   height: 200px;
   border-radius: 50%;
   opacity: 0.6;
-  animation: rotate 30s linear infinite;
 
 }
 .search{
@@ -207,29 +202,7 @@ color: white;
 }
 
 
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
-
-@keyframes slideFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 @media (max-width: 848px) {
   .card-second {
