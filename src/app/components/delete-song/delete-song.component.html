@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+            <div *ngIf="!isDeleted">
+                <h2 class="offset-3 mt-5 pt-5 title">אתה בטוח שאתה רוצה למחוק את שיר מספר {{id}} ?</h2>
+                <div class="offset-6 mt-5 pt-5 buttons">
+                    <button class="btn btn-primary" (click)="handleDelete()">כן</button>&nbsp;
+                    <a class="btn btn-warning" routerLink="/songs">לא</a>
+                </div>
+            </div>
+        </div>
+            <div *ngIf="isDeleted">
+                <h2>השיר נמחק בהצלחה !</h2>
+                <a routerLink="/songs" class="btn btn-primary">חזור לשירים</a>
+            </div>
+        </div>
+    </div>
+</div>

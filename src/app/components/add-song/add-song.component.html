@@ -1,0 +1,35 @@
+<div class="all">
+<div class="container">
+    <div class="row">
+        <div class="col-8 mt-5 pt-5">
+            <div class="card">
+                <h2 class="title">הוסף שיר חדש למערכת </h2>
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="שם השיר" ngModel name="title"
+                            #title="ngModel" required minlength="3">
+                    </div>
+                    <div *ngIf="isError">
+                        <p style="color:crimson">{{error}}</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="מילים" ngModel name="words"
+                            #words="ngModel" required minlength="10">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" class="form-control" placeholder="קישור לסרטון" ngModel name="video"
+                            #video="ngModel" >
+                    </div>
+                    <button [disabled]="form.invalid" class="btn btn-success" type="submit">הוסף</button>&nbsp;
+                    <a routerLink="/songs" class="btn btn-warning">חזור</a>
+                </form>
+                <img src="https://www.maccabipedia.co.il/images/4/40/LOGO.png" alt="">
+            </div>
+        </div>
+        <div class="col-12">
+            <p class="ins-text">עזור לנו להגדיל את מאגר השירים  ,  הוסף שיר חדש !</p>
+            <img class="ins" src="https://media.wired.com/photos/5a0a38c1d07f6824ff44221b/master/w_2560%2Cc_limit/twitterlists-TA.jpg" alt="">
+        </div>
+    </div>
+</div>
+</div>

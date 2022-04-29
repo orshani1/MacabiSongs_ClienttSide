@@ -1,0 +1,59 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding-right: 150px;
+}
+.card{
+    position: relative;
+    color: white;
+  background-color: #3f60a6;
+    margin: 5rem 0px;
+    margin-right: 2rem;
+    padding: 2rem 2rem;
+    width: fit-content;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+.card::after{
+    position: absolute;
+    content: "";
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
+    width: 110%;
+    background-color: rgb(255, 196, 0);
+    border-radius: 20px;
+    height: 300px;
+    left: -5%;
+    z-index: -2;
+    transform: none;
+    animation: to100 2s ease-in-out;
+    transform-origin: left;
+}
+.card::before{
+    content: "";
+    background: url('https://www.maccabipedia.co.il/images/4/40/LOGO.png');
+    background-size: cover;
+    position: absolute;
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+    top: 85%;
+    left: -10%;
+}
+@media (min-width:1000px) {
+    .card::before{
+        left: -2%;
+        width: 200px;
+        height: 200px;
+        top: 70%;
+    }
+}
+@media (max-width:502px) {
+    .title{
+        margin: 0 auto;
+        font-size: 20px;
+        width: fit-content;
+    }    
+    .buttons{
+        gap: 0;
+    }
+}

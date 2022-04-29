@@ -1,0 +1,87 @@
+@media (max-width:500px){
+    .container{
+        padding-bottom: 15rem;
+    }
+    
+        .card{
+            width: 300px;
+            position: relative;
+            padding: 2rem;
+            height: 500px;
+            color: white;
+
+            padding-top: 6rem;
+            background-color: #3F60A6;
+            border-radius: 20px;
+            box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.3);
+        }
+        .card::after{
+            position: absolute;
+            content: "";
+            width: 110%;
+            background-color: rgb(255, 196, 0);
+            border-radius: 20px;
+            height: 300px;
+            left: -5%;
+            z-index: -2;
+            transform: none;
+        }
+    
+}
+.card{
+    margin-bottom: 80px;
+    width: 300px;
+    position: relative;
+    padding: 2rem;
+    height: 500px;
+    color: white;
+    padding-top: 6rem;
+    background-color: #3F60A6;
+    border-radius: 20px;
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.3);
+}
+.card::after{
+    position: absolute;
+    content: "";
+    width: 110%;
+    background-color: rgb(255, 196, 0);
+    border-radius: 20px;
+    height: 300px;
+    left: -5%;
+    z-index: -2;
+    transform: none;
+    animation: to100 2s ease-in-out;
+    transform-origin: left;
+}
+.semi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+    transform: translate(-45px,40px);
+    width: 200px;
+    height: 100px;
+    background-color: rgb(255, 174, 0);
+    border-radius: 20px;
+    color: white;
+    animation: slideFromBottom 2s ease;
+}
+@keyframes slideFromBottom {
+    0%{
+        height: 0px;
+    }
+    100%{
+        height: 100px;
+
+    }
+    
+}
+@keyframes to100 {
+    0%{
+        width: 0px;
+    }
+    100%{
+    width: 110%;
+
+    }
+}

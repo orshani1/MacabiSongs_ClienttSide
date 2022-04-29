@@ -1,0 +1,28 @@
+<video [autoplay]="true" [muted]="true" #video cd loop id="myVideo">
+    <source src="../../../assets/macabi.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+<div class="container">
+    <img class="logo-img" src="https://www.maccabipedia.co.il/images/4/40/LOGO.png" alt="">
+    <div class="card-songs">
+        <div class="card-songs-content">
+            <div class="card-title">
+                <h2>{{song.title}}
+
+                </h2>
+            </div>
+            <div class="card-songs-body">
+                <p class="song-words">{{song.words}}</p>
+           
+                <iframe  width="150"  height="200" src="https://www.youtube.com/embed/wGVhvLVvJDs">
+                </iframe>
+              
+                
+            
+            </div>
+        </div>
+        <a *ngIf="!isAdmin" class="btn danger" routerLink="/songs">חזור לשירים</a>
+        <br>
+        <button class="btn btn-primary" *ngIf="isAdmin" (click)="handleClick()">סיים לשיר</button>
+    </div>
+</div>

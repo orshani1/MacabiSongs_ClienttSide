@@ -1,0 +1,27 @@
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-8">
+            <div class="semi">
+                <p>אתה עורך האוהדים שרים</p>
+            </div>
+            <div class="card">
+            <h2>ערוך שיר מספר {{id}}</h2>
+                <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+                    <div class="form-group">
+                        <label for="title" class="form-label">שם השיר:</label>
+                        <input type="text" class="form-control" ngModel [(ngModel)]="song.title" #title="ngModel"
+                            name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="songWords" class="form-label">מילים:</label>
+                        <input type="text" class="form-control" ngModel #words="ngModel" name="words"
+                            [(ngModel)]="song.words">
+                    </div>
+                    <button class="btn btn-primary" type="submit">שלח</button>
+                    <a href="" class="btn btn-warning" routerLink="/songs">חזור</a>
+                </form>
+                <img src="https://www.maccabipedia.co.il/images/4/40/LOGO.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

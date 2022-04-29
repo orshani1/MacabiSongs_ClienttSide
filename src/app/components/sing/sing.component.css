@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+}
+video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    padding: 0;
+    filter: blur(10px);
+    background: radial-gradient(#303030, transparent, #303030);
+    opacity: 0.9;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+}
+
+.logo-img{
+    position: absolute;    
+    top: 30%;
+    left: 30%;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+}
+
+.song-words{
+    display: flex;
+    width: fit-content;
+    font-size: 20px;
+    /* animation: k 35s; */
+
+}
+
+
+
+
+.card-title::after{
+    width: 100px;
+    height: 100px;
+    background: url("https://www.maccabipedia.co.il/images/4/40/LOGO.png");
+}
+.card-title{
+    margin-left: 45%;
+    padding-bottom: 80px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 20%;
+
+
+}
+
+
+
+/* .danger{
+    color: #fff;
+    font-weight: 500;
+    background: linear-gradient(to right,rgba(0, 0, 255, 0.671),rgba(255, 255, 0, 0.693));
+} */
+.danger{
+    background-color: rgba(0, 102, 255, 0.896);
+    color: white;
+    font-weight: 700;
+}
+.title{
+    margin-top: 5%;
+}
+
+.card-songs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    margin: 20px 20px;
+
+    width: 1000px;
+    background-color: #3F60A6;
+    color: white;
+    overflow: hidden;
+    height: max-content;
+    box-shadow: 0 0 20px 0px rgba(245, 188, 0, 0.897);
+    border-radius: 20px;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes k {
+    0%{
+        transform:translateX(-40%)
+    }
+    100%{
+        transform: translateX(40%);
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 820px) {
+    .logo-img{
+        top: 10%;
+        left: 0%;
+        animation: rotate 15s ease-in-out;
+    }
+    .card-songs{
+        width: 200px;
+        height: fit-content;
+        display: flex;
+        margin-right: 25%;
+        padding-top: 0%;
+        margin-top: 5rem;
+        transform: translateY(-100px);
+
+
+        justify-content: center;
+
+    }
+    .container{
+        width: max-content;
+    }
+    .card-title{
+        transform: translateY(60px);
+        padding: 0;
+        padding-bottom: 90px;
+    }
+    h2{
+        font-size: 15px;
+    }
+    p{
+        font-size: 10px;
+    }
+    .song-words{
+        font-size: 12px;
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+}

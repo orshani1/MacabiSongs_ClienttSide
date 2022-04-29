@@ -1,0 +1,134 @@
+<div class="all">
+
+    <video [autoplay]="true" [muted]="true" #video cd loop id="myVideo">
+        <source src="../../../assets/macabi.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <!-- <div class="about" style="color:white">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur similique architecto atque voluptatum necessitatibus dolore cumque accusamus rerum itaque obcaecati!</p>
+</div> -->
+<div class="welcome">
+    <div class="home-logo-container">
+        <img src="https://www.maccabipedia.co.il/images/4/40/LOGO.png" class="home-logo" alt=""><span>לשיר ביחד</span>
+    </div>
+</div>
+
+<div class="enter">
+
+    <h2 class="enter-title">זה שאתה לא יודע את המילים לא אומר שאתה לא יכול לשיר</h2>
+
+
+    <div class="card-second">
+        <img src="https://www.maccabipedia.co.il/images/4/40/LOGO.png"
+            class="card-img" alt="">
+        <div class="card-title ss-one">
+            איך שרים ?
+        </div>
+        <div class="card-body ss-two">
+            מחכים שהמנצח יבחר שיר , הודעה תקפוץ במסך למטה לוחצים על לשיר ומי שלא קופץ אדום
+        </div>
+        <button class="btn btn-primary mw" (click)="viewSing()">תוביל אותי למסך השירה</button>
+</div>
+</div>
+<div class="our-service">
+    <h2>לא מכיר את המילים ? </h2>
+        <p>לא בעיה תלחץ על הכפתור לשיר </p>
+        <p>והאתר יוביל אותך לדף שבו יש מילים וסרטון של השיר </p>
+        
+    </div>
+    <div class="container page" id="page">
+        
+        
+        
+        <div class="quotes">
+            <div class="fit-q">
+                <p *ngFor="let q of quotes">"{{q.content}}"</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="card mt-2  p-5" >
+                    <div class="card-content">
+                        <div class="card-title">
+                            <p>{{message}}</p>
+                            <p *ngIf="isSelected">נבחר שיר חדש !</p>
+                            <a *ngIf="isSelected" routerLink="sing/{{selcetedSong._id}}" class="btn btn-primary">שיר
+                                !</a>
+                                <p *ngIf="!isSelected">לא נבחר שיר עדיין</p>
+                            </div>
+                            <div class="card-body">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="" class="btn btn-success  mb-5 new" *ngIf="isAdmin" routerLink="add-song"><i
+                        class="bi bi-clipboard2-plus"></i>&nbsp;הוסף שיר חדש</a>
+                        <h2 class="offset-8 page-title">רשימת שירים</h2>
+                  
+                        <table class="table-responsive table-bordered table-dark" id="selected-card">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+
+                            </th>
+
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                שם השיר:
+                            </th>
+                            <th>
+                                מילים:
+                            </th>
+                            <section *ngIf="isAdmin">
+                                <th>
+                                    פעולה:
+                                </th>
+                                <th>
+                                    פעולה:
+                                </th>
+                            </section>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let song of songs">
+                            <th>
+                                <img class="logo" src="https://www.maccabipedia.co.il/images/4/40/LOGO.png" alt="">
+                            </th>
+                            <th>
+                                {{song.id}}
+                            </th>
+                            <td>
+                                {{song.title}}
+                            </td>
+                            <td>
+                                {{song.subWords}}
+                            </td>
+                            <section *ngIf="isAdmin">
+                                <td>
+                                    <a routerLink="sing/{{song._id}}" (click)="handleClick(song._id)"
+                                        class="btn btn-primary">שיר &nbsp;<i class="bi bi-mic-fill"></i></a>
+
+
+                                    <a class="btn btn-warning" routerLink="edit-song/{{song._id}}">ערוך &nbsp;<i
+                                            class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-secondary" routerLink="delete-song/{{song._id}}">מחק&nbsp;<i
+                                            class="bi bi-trash"></i></a>
+
+
+                                </td>
+
+                            </section>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+GET http://localhost:3000/songs
+
+###
+
+GET http://localhost:3000/songs/626a73e1aa90cb055089fe3c
+
+
+###
+POST http://localhost:3000/songs
+Content-Type: application/json
+
+{
+    "title":"amgar",
+    "words":"amgar ya sharmota",
+    "subWords":"saas",
+    "isSelected":false,
+    "video":"asdas"
+}
+
+###
+DELETE http://localhost:3000/songs/626a73e1aa90cb055089fe3c
+
+###
+PATCH  http://localhost:3000/songs/626a73e1aa90cb055089fe3c
+Content-Type: application/json
+
+{
+    "title":"amgar gay"
+}

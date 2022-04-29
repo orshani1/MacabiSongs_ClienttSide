@@ -1,0 +1,35 @@
+<div class="all">
+<div class="container" >
+    <div class="card-back">
+        <p class="semi-card">מהפלאפון שלכם עד למגרש </p>
+    </div>
+    <div class="row">
+        <div class="col-8 card-wrapper">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://www.maccabipedia.co.il/images/4/40/LOGO.png"  alt="">
+                </div>
+            <h1 class="username">ברוך הבא , יש להתחבר או להרשם כדי להיכנס למערכת</h1>
+            <p class="weak">אין צורך בהרשמה כדי להשתמש בשירות שהאתר מציע אפשר להיכנס בתור אורח </p>
+
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <div class="form-group">
+                <input type="text"  ngModel class="form-control user" placeholder="שם משתמש" required #username="ngModel" name="username" value="">
+            </div>
+            <div class="form-group">
+                <input type="password" ngModel class="form-control password" placeholder="סיסמא" required #password="ngModel" name="password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary long">התחבר</button>&nbsp;
+            </div>
+            <div class="form-group gap-5">
+                <a href="" routerLink="">הכנס כאורח</a>
+            </div>
+
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+</div>
