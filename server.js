@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
@@ -136,7 +136,7 @@ app.patch("/songs/:id",async (req, res) => {
 
 ////USERS HTTP REQ
 ////USERS HTTP REQ
-app.get("/users", async (req, res) => {
+app.get("/users", cors(),async (req, res) => {
   const users = await User.find();
   console.log(users);
   res.json(users);
@@ -144,7 +144,7 @@ app.get("/users", async (req, res) => {
 ////USERS HTTP REQ
 ////USERS HTTP REQ
 
-app.get("/quotes", async (req, res) => {
+app.get("/quotes",cors(), async (req, res) => {
   const quotes = await Quote.find();
   res.json(quotes);
 });
