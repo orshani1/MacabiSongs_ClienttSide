@@ -14,19 +14,21 @@ const port = process.env.PORT || 3000;
 //     "https://nodejs-songs-website.herokuapp.com/",
 //   ];
 
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 // app.use(
 //   cors({
 //     origin: "https://nodejs-songs-website.herokuapp.com/",
 //   })
 // );
+
+app.use(cors());
 app.use(express.static("app"));
 
 mongoose.connect(
