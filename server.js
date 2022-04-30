@@ -14,12 +14,7 @@ const allowedOrigins = [
     "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "https://nodejs-songs-website.herokuapp.com/",
   ];
-app.use((req, res, next) => {
- 
-  const origin = req.headers.origin;
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    next();
-});
+
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -28,11 +23,11 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(
-  cors({
-    origin: "https://nodejs-songs-website.herokuapp.com/",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://nodejs-songs-website.herokuapp.com/",
+//   })
+// );
 app.use(express.static("app"));
 
 mongoose.connect(
