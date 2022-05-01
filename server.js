@@ -50,15 +50,21 @@ async function connectToDb() {
     origin: "https://nodejs-songs-website.herokuapp.com/",
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   };
+  try
+  {
+
   await mongoose
-    .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
-    .then(() => {
+    .connect(db, { useUnifiedTopology: true, useNewUrlParser: true });
+     
       var db = mongoose.connection;
-      var dbo = db.useDb("myFirstDatabase");
       db.on("error", (e) => console.error(e));
       db.once("open", () => console.log("connected to db"));
+      app.use(cors(corsOptions));
 
-
+    }
+    catch(err){
+        console.log(err);
+    }
   
 
       app.use(express.urlencoded({ extended: true }));
@@ -171,7 +177,6 @@ async function connectToDb() {
         const quotes = await Quote.find();
         res.json(quotes);
       });
-    });
 }
 
 // app.use((req, res, next) => {
@@ -187,5 +192,5 @@ async function connectToDb() {
 //   next();
 // });
 // app.use(cors({origin:'https://nodejs-songs-website.herokuapp.com/',credentials:true}));
-
+connectToDb();
 app.listen(port, () => console.log("server started"));
