@@ -27,27 +27,27 @@ const port = process.env.PORT || 3000;
 //     origin: "https://nodejs-songs-website.herokuapp.com/",
 //   })
 // );
-var whitelist = [
-"mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
-var corsOptions = {
-  credentials: true,
-  origin: function(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// var whitelist = [
+// "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
+// var corsOptions = {
+//   credentials: true,
+//   origin: function(origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
 
-app.use(cors(corsOptions));
 app.use(express.static("app"));
 
 mongoose.connect(
-  "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-);
-
+    "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    );
+    
+    app.use(cors());
 var db = mongoose.connection;
 var dbo = db.useDb("myFirstDatabase");
 db.on("error", (e) => console.error(e));
