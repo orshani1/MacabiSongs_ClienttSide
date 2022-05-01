@@ -27,8 +27,21 @@ const port = process.env.PORT || 3000;
 //     origin: "https://nodejs-songs-website.herokuapp.com/",
 //   })
 // );
+var whitelist = ['https://nodejs-songs-website.herokuapp.com/',
+"mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
+var corsOptions = {
+  credentials: true,
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
-app.use(cors());
+
+app.use(cors(corsOptions));
 app.use(express.static("app"));
 
 mongoose.connect(
