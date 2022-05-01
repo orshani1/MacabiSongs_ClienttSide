@@ -27,7 +27,7 @@ const port = process.env.PORT || 3000;
 //     origin: "https://nodejs-songs-website.herokuapp.com/",
 //   })
 // );
-var whitelist = ['https://nodejs-songs-website.herokuapp.com/',
+var whitelist = [
 "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
 var corsOptions = {
   credentials: true,
