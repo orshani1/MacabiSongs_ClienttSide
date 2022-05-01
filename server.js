@@ -62,7 +62,7 @@ app.use(express.json());
 ///GET ALL SONGS
 ///GET ALL SONGS
 
-app.get("/songs", cors(),async (req, res) => {
+app.get("/songs",async (req, res) => {
   try {
     const songs = await Song.find();
     res.json(songs);
@@ -77,7 +77,7 @@ app.get("/songs", cors(),async (req, res) => {
 ///GET_SINGLE SONG
 ///GET_SINGLE SONG
 ///GET_SINGLE SONG
-app.get("/songs/:id", cors(),async (req, res) => {
+app.get("/songs/:id",async (req, res) => {
   const resp = await Song.findById(req.params.id);
   if (!resp) {
     res.status(404).send("not found");
@@ -92,7 +92,7 @@ app.get("/songs/:id", cors(),async (req, res) => {
 ///POST_SONG
 ///POST_SONG
 ///POST_SONG
-app.post("/songs", cors(),async (req, res) => {
+app.post("/songs",async (req, res) => {
   const song = new Song({
     title: req.body.title,
     words: req.body.words,
@@ -115,7 +115,7 @@ app.post("/songs", cors(),async (req, res) => {
 //.........................
 ///DELETE_SONG
 ///DELETE_SONG
-app.delete("/songs/:id",  cors(),async (req, res) => {
+app.delete("/songs/:id", async (req, res) => {
   deletedSong = await Song.deleteOne({ _id: req.params.id });
   res.send({ message: "deleted" });
 });
@@ -127,7 +127,7 @@ app.delete("/songs/:id",  cors(),async (req, res) => {
 ///UPDATE
 ///UPDATE
 
-app.patch("/songs/:id", cors(),async (req, res) => {
+app.patch("/songs/:id",async (req, res) => {
   let filter = { _id: req.params.id };
   let update = {
     title: req.body.title,
@@ -151,7 +151,7 @@ app.patch("/songs/:id", cors(),async (req, res) => {
 
 ////USERS HTTP REQ
 ////USERS HTTP REQ
-app.get("/users", cors(),async (req, res) => {
+app.get("/users", async (req, res) => {
   const users = await User.find();
   console.log(users);
   res.json(users);
@@ -159,7 +159,7 @@ app.get("/users", cors(),async (req, res) => {
 ////USERS HTTP REQ
 ////USERS HTTP REQ
 
-app.get("/quotes",cors(), async (req, res) => {
+app.get("/quotes", async (req, res) => {
   const quotes = await Quote.find();
   res.json(quotes);
 });
