@@ -40,14 +40,24 @@ const port = process.env.PORT || 3000;
 //   }
 // }
 
-
 app.use(express.static("app"));
 
 mongoose.connect(
-    "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-    );
-    
-    app.use(cors());
+  "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+);
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested, Content-Type, Accept Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "POST, PUT, PATCH, GET, DELETE");
+    return res.status(200).json({});
+  }
+  next();
+});
+app.use(cors({origin:'https://nodejs-songs-website.herokuapp.com/',credentials:true}));
 var db = mongoose.connection;
 var dbo = db.useDb("myFirstDatabase");
 db.on("error", (e) => console.error(e));
@@ -62,7 +72,7 @@ app.use(express.json());
 ///GET ALL SONGS
 ///GET ALL SONGS
 
-app.get("/songs",async (req, res) => {
+app.get("/songs", async (req, res) => {
   try {
     const songs = await Song.find();
     res.json(songs);
@@ -77,7 +87,7 @@ app.get("/songs",async (req, res) => {
 ///GET_SINGLE SONG
 ///GET_SINGLE SONG
 ///GET_SINGLE SONG
-app.get("/songs/:id",async (req, res) => {
+app.get("/songs/:id", async (req, res) => {
   const resp = await Song.findById(req.params.id);
   if (!resp) {
     res.status(404).send("not found");
@@ -92,7 +102,7 @@ app.get("/songs/:id",async (req, res) => {
 ///POST_SONG
 ///POST_SONG
 ///POST_SONG
-app.post("/songs",async (req, res) => {
+app.post("/songs", async (req, res) => {
   const song = new Song({
     title: req.body.title,
     words: req.body.words,
@@ -127,7 +137,7 @@ app.delete("/songs/:id", async (req, res) => {
 ///UPDATE
 ///UPDATE
 
-app.patch("/songs/:id",async (req, res) => {
+app.patch("/songs/:id", async (req, res) => {
   let filter = { _id: req.params.id };
   let update = {
     title: req.body.title,
