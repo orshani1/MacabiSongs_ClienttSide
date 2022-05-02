@@ -11,36 +11,36 @@ const Quote = require("./models/quote");
 const port = process.env.PORT || 5000;
 
 app.use(cors());
-// const allowedOrigins = [
-//     "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-//     "https://nodejs-songs-website.herokuapp.com/",
-//   ];
+const allowedOrigins = [
+    "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "https://nodejs-songs-website.herokuapp.com/",
+  ];
 
-// app.use(function (req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE");
-//   res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 
-// app.use(
-//   cors({
-//     origin: "https://nodejs-songs-website.herokuapp.com/",
-//   })
-// );
-// var whitelist = [
-// "mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
-// var corsOptions = {
-//   credentials: true,
-//   origin: function(origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
+app.use(
+  cors({
+    origin: "https://nodejs-songs-website.herokuapp.com/",
+  })
+);
+var whitelist = [
+"mongodb+srv://orshani1:orshani1@cluster0.wo5vk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
+var corsOptions = {
+  credentials: true,
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
 app.use(express.static("app"));
 const db = process.env.MONGODB_URL;
