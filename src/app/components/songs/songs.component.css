@@ -115,6 +115,7 @@ h2 {
   background-size: cover;
   border-radius: 20px;
   color: white;
+  transform: translateY(-2rem);
 }
 .home-logo-container {
   position: relative;

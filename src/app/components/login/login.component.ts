@@ -17,19 +17,32 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(form:NgForm){
-    this.service.login(form.value.username,form.value.password).subscribe((respone:any)=>{
-      console.log("Response valuses = ",respone)
+  handleGuest(){
+    localStorage.clear();
+    localStorage.setItem(this.KEY,"Guest");
+    this.isAuthenticated = true;
 
-      if(respone && respone[0] && respone[0]._id){
-        this.isAuthenticated = true;
-        localStorage.setItem(this.KEY,form.value.username);
-        for(let u of respone[0].users){
-          console.log('u',u);
-          if(u.userName == form.value.username && u.isAdmin)
+    this.router.navigate(['songs']);
+
+  }
+  onSubmit(form:NgForm){
+
+    this.service.login(form.value.username,form.value.password).subscribe((respone:any)=>{
+
+      if(localStorage.getItem(this.KEY)){
+
+          this.isAuthenticated = true;
+          this.router.navigate(['songs']);
+
+        
+      }
+        if(respone && respone[0] && respone[0]._id){
+          this.isAuthenticated = true;
+          localStorage.setItem(this.KEY,form.value.username);
+          for(let u of respone){
+            if(u.userName == form.value.username && u.isAdmin)
         localStorage.setItem(this.ADMIN_KEY,u.isAdmin);
           this.router.navigate(['songs']);
-          console.log("Response valuses = ",respone[0])
         }
         
          this.router.navigate(['songs']);

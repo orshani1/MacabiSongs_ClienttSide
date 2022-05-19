@@ -4,7 +4,7 @@ import { HttpClient, HttpParamsOptions } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  private readonly SERVER ='mongodb://localhost:27017/macabi-songs';
+  private readonly SERVER ='https://localhost:7021/api';
   constructor(private _http:HttpClient) {
        
    }
@@ -14,13 +14,9 @@ export class HttpService {
      return this._http.get(`${this.SERVER}/songs`);
    }
    getAllUsers(){
-     return this._http.get(`${this.SERVER}/users`);
+     return this._http.get(`${this.SERVER}/user`);
    }
    
-
-   getAllQuotes(){
-     return this._http.get(`${this.SERVER}/quotes`);
-   }
 
 
 ///CLASS UTILITES
@@ -31,7 +27,7 @@ export class HttpService {
           password
        }
      }
-     return this._http.get(`${this.SERVER}/users`,httpOptions);
+     return this._http.get(`${this.SERVER}/user`,httpOptions);
    }
    public isAuthenticated():boolean{
      const username = localStorage.getItem('USERNAME');
@@ -39,7 +35,7 @@ export class HttpService {
    }
 ///GET SINGLE BY ID
    getSingleUser(id:number){
-    return  this._http.get(`${this.SERVER}/users/${id}`);
+    return  this._http.get(`${this.SERVER}/user/${id}`);
    }
    getSingleSong(id:number){
 
@@ -61,7 +57,6 @@ export class HttpService {
 
    //PUT 
    updateSong(id:number,song:any){
-     console.log('UPDATED SONG ENTERING HTTP CLIENT IS ',song);
      return this._http.patch(`${this.SERVER}/songs/${id}`,song);
    }
 }

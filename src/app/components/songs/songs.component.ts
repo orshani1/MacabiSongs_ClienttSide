@@ -47,10 +47,12 @@ export class SongsComponent implements OnInit , OnDestroy {
     /////Check every 2 seconds if isSelected is change and if so change the song state in the UI
       interval(2000).subscribe(x=>{
           service.getAllSongs().subscribe((response:any)=>{
+            console.log("In interval response is ",response);
             let count = 0;
             for(let song of response){
                 if(song.isSelected){
                     count++;
+                    console.log("Selected song is ",song);
                     this.selcetedSong = song;
                 }
             }
@@ -91,7 +93,7 @@ export class SongsComponent implements OnInit , OnDestroy {
         this.isSelected = true;
         params.isSelected = true;
         this.selcetedSong = params;
-        this.service.updateSong(params._id,this.selcetedSong).subscribe((params:any)=>{
+        this.service.updateSong(params._id,params).subscribe((params:any)=>{
           console.log('updated song in db is  the id of the song is ',params,params._id);
         });        
       })
