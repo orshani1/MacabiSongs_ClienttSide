@@ -4,7 +4,7 @@ import { HttpClient, HttpParamsOptions } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  private readonly SERVER ='https://77.125.163.117/api';
+  private readonly SERVER ='https://macabisongsapi20220523232622.azurewebsites.net/api';
   constructor(private _http:HttpClient) {
        
    }
